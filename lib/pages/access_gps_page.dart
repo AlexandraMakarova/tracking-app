@@ -13,6 +13,8 @@ class AccessGpsPage extends StatefulWidget {
 
 class _AccessGpsPageState extends State<AccessGpsPage>
     with WidgetsBindingObserver {
+  bool popup = false;
+
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
@@ -28,7 +30,7 @@ class _AccessGpsPageState extends State<AccessGpsPage>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     // super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed) {
+    if (state == AppLifecycleState.resumed && !popup) {
       if (await Permission.location.isGranted) {
         Navigator.pushReplacementNamed(context, LoadingPage.routeName);
       }

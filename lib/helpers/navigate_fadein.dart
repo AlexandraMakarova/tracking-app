@@ -7,7 +7,7 @@ Route navigateFadeIn(BuildContext context, Widget page) {
     transitionsBuilder: (context, animation, _, child) {
       return FadeTransition(
         child: child,
-        opacity: Tween(begin: 0.0, end: 1.0).animate(
+        opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
           CurvedAnimation(
             curve: Curves.easeOut,
             parent: animation,
